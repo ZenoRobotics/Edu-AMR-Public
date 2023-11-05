@@ -1,11 +1,13 @@
-Arduino:  Edu_AMR_v1_0  Password for my bot: tank
-
+#Stop any roscores that may be running:
 T0: >  killall -9 roscore
-
+#Start new roscore
 T0: >  roscore
 
-
+#Set read/write access to Arduino and RPLidar USB ports
 T1: >  sudo chmod 666 /dev/ttyACM0
+
+T1: >  sudo chmod 666 /dev/ttyUSB0
+
 
 T1: >  cd catkin_rplidar_ws/
 
@@ -16,23 +18,23 @@ T2: >  cd hector_slam_ws/
 
 T2: >  source devel/setup.bash
 
-sudo chmod 666 /dev/ttyUSB0
-sudo ln -s /dev/ttyUSB0 /dev/ydlidar
 
-T1: >  roslaunch ydlidar_ros lidar.launch
+T1: >  roslaunch rplidar_ros rplidar_a1.launch
+#or run script I wrote in directory
+T1: >  ./launch_rplidar
 
+# At ~/
 T3: >  rosrun rosserial_python serial_node.py /dev/ttyACM0
-
+or run script 
+T3: >  ./run_rosserial
 
 T2: >  roslaunch hector_slam_launch tutorial.launch
+# or run script I wrote in directory
+T2: >  ./run_hector_slam
 
-//Changed this file
-~/catkin_hector_slam_ws/src/hector_slam/hector_mapping/launch/mapping_default.launch
-~/catkin_tankbot_ws/src/robot_setup_tf/src/tf_broadcaster.cpp  (to change "base_laser" to "laser_frame" as needed by tutorial.launch of Hector.
 
-T5: >  rostopic echo /tf
-
-// For pseudo autonomous explore mode:
+# Set RC mode switch to on to drive robot by RC Tx device
+# or, For pseudo autonomous explore mode:
 
 T4: > python3 explore_mode_RPLidar.py
  
@@ -40,14 +42,3 @@ ______________________________________________________________
 // Save Map to File
 rosrun map_server map_saver -f ~/map1
 
-----------------------------------------------------------------------------------------------------------------
-**teleop_twist_keyboard Command, not to be used for explore_mode.py or
-ir teleop:
-
-rosrun teleop_twist_keyboard teleop_twist_keyboard.py  or
- 
-rosrun teleop_twist_keyboard   teleop_twist_keyboard_num_pz.py
-
-File location:
-
-/opt/ros/kinetic/lib/teleop_twist_keyboard/
