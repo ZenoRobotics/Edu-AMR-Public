@@ -1,0 +1,53 @@
+Arduino:  Edu_AMR_v1_0  Password for my bot: tank
+
+T0: >  killall -9 roscore
+
+T0: >  roscore
+
+
+T1: >  sudo chmod 666 /dev/ttyACM0
+
+T1: >  cd catkin_rplidar_ws/
+
+T1: >  source devel/setup.bash
+
+
+T2: >  cd hector_slam_ws/
+
+T2: >  source devel/setup.bash
+
+sudo chmod 666 /dev/ttyUSB0
+sudo ln -s /dev/ttyUSB0 /dev/ydlidar
+
+T1: >  roslaunch ydlidar_ros lidar.launch
+
+T3: >  rosrun rosserial_python serial_node.py /dev/ttyACM0
+
+
+T2: >  roslaunch hector_slam_launch tutorial.launch
+
+//Changed this file
+~/catkin_hector_slam_ws/src/hector_slam/hector_mapping/launch/mapping_default.launch
+~/catkin_tankbot_ws/src/robot_setup_tf/src/tf_broadcaster.cpp  (to change "base_laser" to "laser_frame" as needed by tutorial.launch of Hector.
+
+T5: >  rostopic echo /tf
+
+// For pseudo autonomous explore mode:
+
+T4: > python3 explore_mode_RPLidar.py
+ 
+______________________________________________________________
+// Save Map to File
+rosrun map_server map_saver -f ~/map1
+
+----------------------------------------------------------------------------------------------------------------
+**teleop_twist_keyboard Command, not to be used for explore_mode.py or
+ir teleop:
+
+rosrun teleop_twist_keyboard teleop_twist_keyboard.py  or
+ 
+rosrun teleop_twist_keyboard   teleop_twist_keyboard_num_pz.py
+
+File location:
+
+/opt/ros/kinetic/lib/teleop_twist_keyboard/
