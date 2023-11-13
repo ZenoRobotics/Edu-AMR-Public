@@ -1,49 +1,52 @@
-# Autonomous Navigation Robot
-## Robot with SLAM & Autonomous Navigation
+# Edu-AMR by ZenoRobotics
+## Educational Autonomous Mobile Robot (AMR) Platform with SLAM & Autonomous Navigation
 <br>
-
-___________________________________________________________________________
 
 # **Details About Project**
 
 ## Software Used
-- Fusion360 -> For designing the 3D Model of the robot.
-- [fusion2urdf](https://github.com/syuntoku14/fusion2urdf) -> Fusion360 script to export urdf from fusion 360 directly. 
 - ROS - Noetic 
 - Gazebo 
 - Rviz 
 
-Robot Drive Plugin Used - [Differential Drive - Gazebo](http://gazebosim.org/tutorials?tut=ros_gzplugins#DifferentialDrive)
-
-## Fusion360 Model
+## Robot 3D Model
 <div align="center">
-<img  alt="Fusion360 Model" width="70%" src="images/bug_robot.png" />
+<img  alt="Robot 3D Model" width="60%" src="assets/Edu-AMR.JPG" />
 <br />
 </div>
+
+## Sensors Used
+- 2D Lidar
+- Raspberry Pi Camera V2.0
+- 6-DOF IMU
 
 ## Clone this repository inside your ROS Workspace:
 ```
 cd ~/catkin_ws/src/
-git clone https://github.com/nilutpolkashyap/auto_nav_robot.git
+git clone https://github.com/ZenoRobotics/Edu-AMR-Public.git
 cd ~/catkin_ws/
 catkin_make
 source devel/setup.bash
 ```
 
 ## Launch the simulation and visualization
-Type the command in a terminal to launch the Robot Navigation world simulation:
+Type the command in a terminal to launch the Edu-AMR simulation:
 ```
-roslaunch bug_robot_description gazebo.launch
+roslaunch edu_amr_description gazebo.launch
 ```
 <div align="center">
-<img  alt="gazebo simulation" src="images/gazebo_simulation.png" /></div><br />
+<img  alt="gazebo simulation"  width="100%" src="assets/Edu-AMR_gazebo.png" /></div><br />
 
-Type the command in another terminal to run the RVIZ visualization:
+Type the command in another terminal to run the Rviz visualization:
 ```
-roslaunch bug_robot_description rviz.launch
+roslaunch edu_amr_description rviz.launch
 ```
 <div align="center">
-<img  alt="rviz visualization" src="images/rviz_visualization.png" /></div>
+<img  alt="rviz visualization" width="100%" src="assets/Edu-AMR_rviz.png" /></div>
+
+
+
+
 
 
 ## Launch SLAM - Gmapping
