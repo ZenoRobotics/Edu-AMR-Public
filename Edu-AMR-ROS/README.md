@@ -52,17 +52,17 @@ roslaunch edu_amr_description rviz.launch
 ## Launch SLAM - Gmapping
 Type the command in a terminal to launch the Robot Navigation world simulation:
 ```
-roslaunch bug_robot_description navigation_sim.launch
+roslaunch edu_amr_description navigation_sim.launch
 ```
 <div align="center">
-<img  alt="gazebo simulation" src="images/navigation_world.png" /></div><br />
+<img  alt="gazebo simulation" src="assets/navigation_world.png" /></div><br />
 
 Type the command in another terminal to run the Gmapping SLAM node:
 ```
-roslaunch bug_robot_navigation gmapping_slam.launch
+roslaunch edu_amr_navigation gmapping_slam.launch
 ```
 <div align="center">
-<img  alt="gmapping slam" src="images/gmapping_slam_launch.png" /></div>
+<img  alt="gmapping slam" src="assets/gmapping_slam_launch.png" /></div>
 
 Type the command in another terminal to run teleoperation node and move the robot around the area to create the map:
 ```
@@ -74,46 +74,51 @@ When the map is created successfully, open a new terminal and type the command t
 rosrun map_server map_saver -f ~/map
 ```
 <div align="center">
-<img  alt="map created and saved" src="images/map_created.png" /></div>
+<img  alt="map saver" src="assets/map_saver.png" /></div>
+<div align="center">
+<img  alt="map created and saved" src="assets/map_created.png" /></div>
 
 ## Run Autonomous Navigation
 Type the command in a terminal to launch the Robot Navigation world simulation:
 ```
-roslaunch bug_robot_description navigation_sim.launch
+roslaunch edu_amr_navigation navigation_sim.launch
 ```
 <div align="center">
-<img  alt="gazebo simulation" src="images/navigation_world.png" /></div><br />
+<img  alt="gazebo simulation" src="assets/navigation_world.png" /></div><br />
 
 Type the command in another terminal to run the Navigation node:
 ```
-roslaunch bug_robot_navigation navigation.launch
+roslaunch edu_amr_navigation navigation.launch
 ```
 <div align="center">
-<img  alt="movebase and amcl" src="images/amcl_and_movebase_launch.png" /></div>
+<img  alt="movebase and amcl" src="assets/navigation_launch.png" /></div>
+
+<div align="center">
+<img  alt="movebase and amcl" src="assets/navigation_launch2.png" /></div>
 
 ### Estimate Initial Pose
 Initial Pose Estimation must be performed before running the Navigation as this process initializes the AMCL parameters that are critical in Navigation. 
 1. Click the 2D Pose Estimate button in the RViz menu.
 
 <div align="center">
-<img  alt="2D_pose_estimate" src="images/2D_pose_estimate2.png" /></div>
+<img  alt="2D_pose_estimate" src="assets/2D_pose_estimate2.png" /></div>
 
 2. Click on the map where the actual robot is located and drag the large green arrow toward the direction where the robot is facing.
 <div align="center">
-<img  alt="2D_pose_estimate" src="images/2D_pose_estimate.png" /></div>
+<img  alt="2D_pose_estimate" src="assets/2D_pose_estimate.png" /></div>
 
 ### Set Navigation Goal
 1. Click the 2D Nav Goal button in the RViz menu. 
 
 <div align="center">
-<img  alt="2D_nav_goal" src="images/2D_nav_goal2.png" /></div>
+<img  alt="2D_nav_goal" src="assets/2D_nav_goal2.png" /></div>
 
 2. Click on the map to set the destination of the robot and drag the green arrow toward the direction where the robot will be facing. 
 
 <div align="center">
-<img  alt="2D_nav_goal" src="images/2D_nav_goal.png" /></div>
+<img  alt="2D_nav_goal" src="assets/2D_nav_goal.png" /></div>
 
 ## Output - Autonomus Navigation
 <div align="center">
-<img  alt="goal_navigation" src="images/goal_navigation.png" /></div>
+<img  alt="goal_navigation" src="assets/goal_navigation.png" /></div>
 
